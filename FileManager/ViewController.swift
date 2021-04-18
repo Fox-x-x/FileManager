@@ -73,14 +73,12 @@ class ViewController: UIViewController {
     
     @objc private func createFolderButtonItemTapped() {
         
-        var dirNameTextField = UITextField()
-        
         let alert = UIAlertController(title: "Create new directory", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Create", style: .default) { [weak self] (action) in
             
             guard let vc = self else { return }
             
-            if let dir = vc.currentDir, let name = dirNameTextField.text {
+            if let dir = vc.currentDir, let name = alert.textFields?.first?.text {
                 var newDir = dir
                 newDir.appendPathComponent(name)
                 do {
@@ -92,15 +90,10 @@ class ViewController: UIViewController {
             }
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .default) {
-            (cancel) in
-            alert.dismiss(animated: true, completion: nil)
-        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alert.addTextField { (alertTextField) in
-            
+        alert.addTextField { alertTextField in
             alertTextField.placeholder = "Type in dir name"
-            dirNameTextField = alertTextField
         }
         
         alert.addAction(action)
@@ -172,8 +165,13 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             }
         }
         
-        picker.dismiss(animated: true, completion: nil)
-        showFilesFor(dir: currentDir!, using: fileManager)
+        picker.dismiss(animated: true) { [weak self] in
+            if let vc = self {
+                if let dir = vc.currentDir {
+                    vc.showFilesFor(dir: dir, using: vc.fileManager)
+                }
+            }
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
