@@ -37,14 +37,8 @@ class ViewController: UIViewController {
         return ftv
     }()
     
-    private lazy var imagePicker: UIImagePickerController = {
-        let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
-        vc.allowsEditing = true
-        vc.delegate = self
-        return vc
-    } ()
-
+    weak var imagePicker: UIImagePickerController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +47,8 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItems = [createFolderButtonItem, addPhotoButtonItem]
         navigationItem.leftBarButtonItem = goUpButtonItem
         setupLayout()
+        
+        imagePicker?.delegate = self
 
         let dirPaths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         currentDir = dirPaths
@@ -104,7 +100,9 @@ class ViewController: UIViewController {
     }
     
     @objc private func addPhotoButtonItemTapped() {
-        present(imagePicker, animated: true, completion: nil)
+        if let photoPicker = imagePicker {
+            present(photoPicker, animated: true, completion: nil)
+        }
     }
     
     @objc private func goUpButtonItemTapped() {

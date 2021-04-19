@@ -13,7 +13,6 @@
 		93AD7220261B823700EF5221 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93AD721E261B823700EF5221 /* Main.storyboard */; };
 		93AD7222261B823800EF5221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93AD7221261B823800EF5221 /* Assets.xcassets */; };
 		93AD7230261B895B00EF5221 /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD722F261B895B00EF5221 /* AutoLayout.swift */; };
-		93AD7234261B9F6C00EF5221 /* FileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7233261B9F6C00EF5221 /* FileObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		93AD7221261B823800EF5221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93AD7226261B823800EF5221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93AD722F261B895B00EF5221 /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
-		93AD7233261B9F6C00EF5221 /* FileObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +59,6 @@
 				93AD7218261B823700EF5221 /* AppDelegate.swift */,
 				93AD721A261B823700EF5221 /* SceneDelegate.swift */,
 				93AD721C261B823700EF5221 /* ViewController.swift */,
-				93AD7233261B9F6C00EF5221 /* FileObject.swift */,
 				93DFCC26261CF28400F56F0C /* Helpers */,
 				93AD721E261B823700EF5221 /* Main.storyboard */,
 				93AD7221261B823800EF5221 /* Assets.xcassets */,
@@ -151,7 +148,6 @@
 				93AD7219261B823700EF5221 /* AppDelegate.swift in Sources */,
 				93AD7230261B895B00EF5221 /* AutoLayout.swift in Sources */,
 				93AD721B261B823700EF5221 /* SceneDelegate.swift in Sources */,
-				93AD7234261B9F6C00EF5221 /* FileObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
