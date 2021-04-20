@@ -12,21 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    private lazy var imagePicker: UIImagePickerController = {
-        let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
-        vc.allowsEditing = true
-        return vc
-    } ()
-    
-    private lazy var viewController: ViewController = {
-        let vc = ViewController()
-        vc.imagePicker = imagePicker
-        return vc
-    }()
-    
     private lazy var navController: UINavigationController = {
-        let nc = UINavigationController(rootViewController: viewController)
+        let nc = UINavigationController(rootViewController: ViewController())
         return nc
     }()
 

@@ -37,8 +37,6 @@ class ViewController: UIViewController {
         return ftv
     }()
     
-    weak var imagePicker: UIImagePickerController?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,8 +45,6 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItems = [createFolderButtonItem, addPhotoButtonItem]
         navigationItem.leftBarButtonItem = goUpButtonItem
         setupLayout()
-        
-        imagePicker?.delegate = self
 
         let dirPaths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         currentDir = dirPaths
@@ -100,9 +96,14 @@ class ViewController: UIViewController {
     }
     
     @objc private func addPhotoButtonItemTapped() {
-        if let photoPicker = imagePicker {
-            present(photoPicker, animated: true, completion: nil)
-        }
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        
+        present(imagePicker, animated: true, completion: nil)
+        
     }
     
     @objc private func goUpButtonItemTapped() {
